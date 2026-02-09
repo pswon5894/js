@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+  <!-- jQuery 설치한 곳 하단에서 jQuery 문법을 사용가능 -->
+    
+</head>
+<body>
+
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+    </div>
+
+        <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+        </nav>
+
+    <ul class="list-group">
+        <!-- <ul class="list-group show"> -->
+        <!-- class 부착식으로 개발하면 -애니메이션 추가 쉬움 -나중에 재사용 편리 -->
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <button id="test-btn">버튼1</button>
+
+    <button id="login-btn">로그인</button>
+    <!-- 버튼 클릭시 모달창이 뜨게 -->
+
+    <script>
+
+        // document.querySelector('.hello').innerHTML = '바보1';
+
+        document.querySelectorAll('.hello')[0].innerHTML = '바보';
+        document.querySelectorAll('.hello')[1].innerHTML = '바보';
+        document.querySelectorAll('.hello')[2].innerHTML = '바보';
+        // <p> 태그 3개 내용을 일괄적으로 '바보'로 바꾸려면,
+        // 그냥 자바스크립트는 저렇게 3줄 쓰면 됩니다.
+
+        $('.hello').html('바보').css('color', 'red');
+        // 그런데 $() 셀렉터는 quertSelectorAll과 비슷, 이거 한줄로 위에 모든 해당 줄 변경
+
+        // documnet.querySelector('#test-btn').addEventListener($('#test-btn').on('click', function(){})
+        $('#test-btn').on('click', function(){
+            // $('.hello').hide()
+            $('.hello').toggle()
+        })
+
+        $('#close').on('click', function(){
+            $('.black-bg').removeClass('show-modal')
+        })
+
+        $('#login-btn').on('click', function(){
+            $('.black-bg').addClass('show-modal')
+        })
+
+        // $('#login-btn').on('click', function(){
+        //     $()
+        // })
+
+        // document.querySelector('.list-group')
+        // 쿼리셀렉터 맨위에 한개만 찾아줌, css에서 클래스 표현할 때 점을 찍는다
+        // document.querySelectorAll('.list-group')
+
+        // document.getElementsByClassName('navbar-toggler')[0].addEventListener('click',
+        // function(){
+        //     document.getElementsByClassName('list-group')[0].classList.toggle('show');
+        // })
+
+        // document.querySelector('.navbar-toggler').addEventListener('click',
+        // function(){
+        //     document.querySelector('.list-group').classList.toggle('show');
+        // })
+
+        $('.navbar-toggler').on('click',
+        function(){
+            document.querySelector('.list-group').classList.toggle('show');
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('hello').style.fontSize = '16px';
+    </script>
+    <!-- getElementById('hello') 셀렉터 라고 하는 문법 -->
+
+    <div class="alert-box" id="alert">
+        <p id="title">알림창임</p>
+            <button id="close">닫기</button>
+        <!-- // 알람창스위치('block')도 가능 -->
+    </div>
+
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+
+    <button onClick="document.getElementById('alert').style.display = 'block';">버튼</button>
+
+    <button onClick="버튼이벤트('로그인')">아이디</button>
+    <button onClick="버튼이벤트('비밀번호')">비밀번호</button>
+
+    <script>
+    function 알림창스위치(파라미터){
+        document.getElementById('alert').style.display = 파라미터;
+        // 함수 파라미터 이용, 여닫기 부분에 값을 입력 받아 작동시킨다
+        // 알람창스위치('block')도 가능
+    }
+
+    function 버튼이벤트(파라미터){
+        document.getElementById('alert').style.display ='block';
+        document.getElementById('title').innerHTML=파라미터;
+    }
+
+    document.getElementById('close').addEventListener('click', function(){
+        document.getElementById('alert').style.display = 'none';
+    });
+
+    // 코드를 순차적으로 실행할 때 가끔 보임 콜백함수 function()
+    
+    </script>
+
+</body>
+</html>
