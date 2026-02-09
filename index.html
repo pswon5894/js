@@ -22,9 +22,34 @@
     <div class="black-bg">
         <div class="white-bg">
             <h4>로그인하세요</h4>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form> 
             <button class="btn btn-danger" id="close">닫기</button>
         </div>
     </div>
+
+    <button onClick="버튼이벤트('로그인')">아이디</button>
+
+    <script>
+        if(조건){
+            실행코드
+        }
+
+        // 전송 버튼 누르면
+        onclick()
+        // 저기 input에 입력한 값이 공백이면
+        // 알림창 띄워주세요
+        alert('내용 입력바람')
+
+    </script>
 
         <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -55,15 +80,15 @@
 
     <script>
 
-        // document.querySelector('.hello').innerHTML = '바보1';
+        // document.querySelector('.hello').innerHTML = '쿼리셀렉1';
 
-        document.querySelectorAll('.hello')[0].innerHTML = '바보';
-        document.querySelectorAll('.hello')[1].innerHTML = '바보';
-        document.querySelectorAll('.hello')[2].innerHTML = '바보';
-        // <p> 태그 3개 내용을 일괄적으로 '바보'로 바꾸려면,
+        document.querySelectorAll('.hello')[0].innerHTML = '쿼리셀렉';
+        document.querySelectorAll('.hello')[1].innerHTML = '쿼리셀렉';
+        document.querySelectorAll('.hello')[2].innerHTML = '쿼리셀렉';
+        // <p> 태그 3개 내용을 일괄적으로 '쿼리셀렉'로 바꾸려면,
         // 그냥 자바스크립트는 저렇게 3줄 쓰면 됩니다.
 
-        $('.hello').html('바보').css('color', 'red');
+        $('.hello').html('쿼리셀렉2').css('color', 'red');
         // 그런데 $() 셀렉터는 quertSelectorAll과 비슷, 이거 한줄로 위에 모든 해당 줄 변경
 
         // documnet.querySelector('#test-btn').addEventListener($('#test-btn').on('click', function(){})
