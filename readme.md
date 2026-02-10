@@ -11,3 +11,6 @@ one-way UI 애니메이션 만드는 법
 2. 최종스타일
 3. 원할 때 최종스타일로 변하라고 코드 만듬
 4. transition 추가
+
+폼전송 막으려면
+e.preventDefault()

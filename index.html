@@ -24,30 +24,37 @@
             <h4>로그인하세요</h4>
             <form action="success.html">
                 <div class="my-3">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="email">
                 </div>
                 <div class="my-3">
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" id="pw">
                 </div>
-                <button type="submit" class="btn btn-primary">전송</button>
+                <button type="submit" class="btn btn-primary" id="send">전송</button>
                 <button type="button" class="btn btn-danger" id="close">닫기</button>
             </form> 
             <button class="btn btn-danger" id="close">닫기</button>
         </div>
     </div>
 
-    <button onClick="버튼이벤트('로그인')">아이디</button>
-
     <script>
-        if(조건){
-            실행코드
-        }
-
         // 전송 버튼 누르면
-        onclick()
-        // 저기 input에 입력한 값이 공백이면
-        // 알림창 띄워주세요
-        alert('내용 입력바람')
+        // $('#send').on('click', function(){
+        $('form').on('submit', function(e){
+            // 저기 input에 입력한 값이 공백이면
+            if(document.getElementById('email').value == ''){
+                // 알림창 띄워주세요
+                alert('내용 입력바람');
+            }
+            if(document.getElementById('pw').value == ''){
+                // 알림창 띄워주세요
+                alert('내용 입력바람');
+            }
+            if(document.getElementById('pw').value.length < 6){
+                // 알림창 띄워주세요
+                alert('6글자 이상으로');
+            }
+        })
+        
 
     </script>
 
