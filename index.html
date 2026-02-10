@@ -32,7 +32,7 @@
                 <button type="submit" class="btn btn-primary" id="send">전송</button>
                 <button type="button" class="btn btn-danger" id="close">닫기</button>
             </form> 
-            <button class="btn btn-danger" id="close">닫기</button>
+            <!-- <button class="btn btn-danger" id="close">닫기</button> -->
         </div>
     </div>
 
@@ -43,15 +43,18 @@
             // 저기 input에 입력한 값이 공백이면
             if(document.getElementById('email').value == ''){
                 // 알림창 띄워주세요
-                alert('내용 입력바람');
+                alert('아이디 내용 입력바람');
+                e.preventDefault(); // 이동 막기
+
             }
             if(document.getElementById('pw').value == ''){
-                // 알림창 띄워주세요
-                alert('내용 입력바람');
+                alert('비밀번호 내용 입력바람');
+                e.preventDefault(); // 이동 막기
+
             }
             if(document.getElementById('pw').value.length < 6){
-                // 알림창 띄워주세요
                 alert('6글자 이상으로');
+                e.preventDefault(); // 이동 막기
             }
         })
         
