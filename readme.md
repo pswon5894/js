@@ -42,3 +42,7 @@ false로 인식하는 자료, falsy 자료들
 null
 undefined
 NaN
+
+변수 쓰는 이유
+1.길고 복잡한 자료들 저장
+2.특정 값을 기억하게

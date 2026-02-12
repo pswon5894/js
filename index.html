@@ -97,11 +97,25 @@
         <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
     </div>
         </nav>
+
+    <script>
+        
+        var count = 0;
+
+        $('.badge').on('click', function(){
+            count++;
+            console.log(count)
+        })
+
+        // badge 홀수번 클릭시 내부 글자를 Light로 변경
+        // badge 짝수번 클릭시 내부 글자를 Light로 변경
+    </script>
 
     <ul class="list-group">
         <!-- <ul class="list-group show"> -->
