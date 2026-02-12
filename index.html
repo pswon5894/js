@@ -17,7 +17,7 @@
   <!-- jQuery 설치한 곳 하단에서 jQuery 문법을 사용가능 -->
     
 </head>
-<body>
+<body class="">
 
     <div class="black-bg">
         <div class="white-bg">
@@ -111,10 +111,13 @@
         $('.badge').on('click', function(){
             count++;
             console.log(count)
-        })
+            if(count % 2 != 0){
+                $('.badge').html('Light');
+            } else {
+                $('.badge').html('Dark')
+            }
+        });
 
-        // badge 홀수번 클릭시 내부 글자를 Light로 변경
-        // badge 짝수번 클릭시 내부 글자를 Light로 변경
     </script>
 
     <ul class="list-group">
