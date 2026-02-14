@@ -46,3 +46,11 @@ NaN
 변수 쓰는 이유
 1.길고 복잡한 자료들 저장
 2.특정 값을 기억하게
+
+자바스크립트 문법
+if var finction
+
+브라우저 문법
+documnet.querySelector()
+setTimeout()
+alert()
