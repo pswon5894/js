@@ -230,24 +230,21 @@
     </script>
 
     <div class="alert alert-danger">
-        <span id="num">5</span>초 이내 구매시 사은품 증정!
+        <span class="num">5</span>초 이내 구매시 사은품 증정!
     </div>
 
     <script>
-        // setTimeout(function(){
-        //     $('.alert').hide();
-        // }, 5000)
-
-        var count = 5;
-
+        var count = 5
         setInterval(function(){
-           if(count > 0 ){
-            count -= 1
-            document.querySelector('#num').innerHTML = count;
-           } else{
-            document.querySelector('.alert').style.display = 'none';
-           }
-        }, 1000)
+            if(count >0){
+                count -= 1;
+                document.querySelector('.num').innerHTML = count;
+                // $('.num').text(count); // js쿼리셀렉터 vs j쿼리
+            } else{
+                document.querySelector('.alert').style.display='none';
+                // $('.alert').hide();
+            }
+        }, 1000);
     </script>
 
 </body>
