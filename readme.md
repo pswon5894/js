@@ -54,3 +54,54 @@ if var finction
 documnet.querySelector()
 setTimeout()
 alert()
+
+includes() 로 문자검사가능
+하지만,
+a로 끝나냐, 한글 있는지?, 영어 있는지? 숫자 n회 출현? 이런건 못함
+
+정규식 쓰면 문자검사 가능
+정규식: 문자를 검사할 수 있는 식
+
+정규식(정규 표현식, Regular Expression)은 특정한 규칙을 가진 문자열의 집합을 표현하는 형식 언어입니다. 복잡한 문자열 검색, 치환, 추출을 간결한 패턴으로 처리하며, 주로 이메일 주소나 전화번호 형식 검증 등 문자열 데이터 처리 및 유효성 검사에 필수적으로 사용
+
+/e/ .test('abcde')
+true, e문자 들어있는지
+
+/[a-z]/.test('abc')
+true, a에서z까지 중의 문자있는지? 문자 범위 지정 가능
+
+/[A-Z]/.test('abc')
+false, 대소문자 구분
+
+/[ㄱ-ㅎ가-힣]/.test('ㅁ')
+true, 한글 있는지? (모음검사는 나중에 추가하자)
+
+/\S/.test('@$')
+true, 아무런 문자 1개, 특수 기호도
+
+/^a/.test('abbb')
+true, a라는 문자로 시작하는지?
+
+/^a/.test('sabbb')
+false
+
+/a$/.test('sssa')
+true, 문자끝 검사
+
+/a|b/.test('sssa')
+a 또는 b 가 들어있는지? or 기호는 |
+
+정규식으로 이메일 형식 검사
+/[a-z]@[a-z]\.[a-z]/.test('a@b.c')      //true
+/[a-z]+@[a-z]+\.[a-z]+/.test('ass@bss.css')     //true
+
+
+/\S@\S\.\S/.test('aaa@bbb.ccc')     //false
+/\S@\S\.\S/.test('a@b.c')       //true
+
+
+/\S+@\S+\.\S+/.test('aaa@bbb.ccc')      //true
+모든문자+@모든문자+.모든문자+
+
+/a+/.test('aaa@bbb.ccc')        //true
++는 왼쪽문자 반복검색

@@ -45,8 +45,11 @@
                 // 알림창 띄워주세요
                 alert('아이디 내용 입력바람');
                 e.preventDefault(); // 이동 막기
-
             }
+            if(/\S+@\S+.\S+/.test(document.getElementById('email').value)){
+                alert('이메일 형식 아님')
+            }
+
             if(document.getElementById('pw').value == ''){
                 alert('비밀번호 내용 입력바람');
                 e.preventDefault(); // 이동 막기
@@ -241,6 +244,7 @@
                 document.querySelector('.num').innerHTML = count;
                 // $('.num').text(count); // js쿼리셀렉터 vs j쿼리
             } else{
+                clearInterval(timer); // 반복 종료, 불필요한 인터벌 반복 종료
                 document.querySelector('.alert').style.display='none';
                 // $('.alert').hide();
             }
