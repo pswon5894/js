@@ -238,9 +238,13 @@
     
     </script>
 
+    
+
     <div class="alert alert-danger">
         <span class="num">5</span>초 이내 구매시 사은품 증정!
     </div>
+
+    
 
     <script>
         var count = 5
@@ -258,5 +262,30 @@
         
     </script>
 
+    <div style="overflow: hidden">
+        <div class = "slide-container">
+            <div class="slide-box">
+                <img src="car1.png">
+            </div>
+            <div class="slide-box">
+                <img src="car2.png">
+            </div>
+            <div class="slide-box">
+                <img src="car3.png">
+            </div>
+        </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button>다음</button>
+
+    <script>
+        $('.slide-2').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+        })
+    </script>
+    
 </body>
 </html>
