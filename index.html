@@ -321,17 +321,46 @@
         
         // console.log(함수(1,30))
 
-        function 함수(a, b){
-            var result = a * 0.9;
-            if (b == true){
-                result = result -1.5;
-            }
-            return result
-        }
-        console.log(함수(10, true))
+        // function 함수(a, b){
+        //     var result = a * 0.9;
+        //     if (b == true){
+        //         result = result -1.5;
+        //     }
+        //     return result
+        // }
+        // console.log(함수(10, true))
     </script>
 
-    
+<!-- overflow-y 넘치는 글자 스크롤바 만들어라 -->
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div> 
+
+    <script>
+        // div의 스크롤바 내린 양 + 눈에보이는div 높이 == div의 실제높이
+        $('.lorem').on('scroll', function(){
+            var 스크롤양 =document.querySelector('.lorem').scrollTop;
+            var 실제높이 =documnet.querySelector('.lorem').scrollHeight;
+
+            var 눈이보이는높이 = document.querySelector('.lorem').clientHeight;
+        })
+    </script>
+
+    <div style="height: 1000px"></div>
+
+    <script>
+        window.addEventListener('scroll', function(){
+            // window는 페이지 화면을 의미 document랑 비슷한 뜻
+            window.scrollY
+            // 스크롤바 내린 양
+        });
+
+        //제이쿼리는 scrollY -> scrollTop()
+        //이건 스크롤바 이동도 됨, 숫자를 넣으면
+        $(window).on('scroll', function(){
+            $(window).scrollTop()
+        })
+    </script>
     
 </body>
 </html>

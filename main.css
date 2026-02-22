@@ -1,3 +1,9 @@
+/* :root {
+  scroll-behavior: auto;
+  /* 이거 넣으면, window.scrollTo(x,y) 강제로 스크롤이 정상작동 */
+  /* bootsrap을 사용하면 스크롤이 강제이동이 천천히 작동함 그래서 */
+/* } */ */
+
 .alert-box{
     background-color: skyblue;
     padding: 20px;
@@ -67,4 +73,15 @@
 
 .slide-box img {
   width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  /* 스크롤바 내리면 로고 작게 만들기 */
 }
