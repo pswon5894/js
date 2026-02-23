@@ -374,11 +374,45 @@
                 한번알트 = true;
             }
         })
+
+        // document.querySelector('html').scrollHeight  //아래와 동일
+        document.documentElement.scrollHeight
+        document.querySelector('html').clientHeight
+        // document.querySelector('html').scrollTop     //아래와 동일
+        window.scrollY
+
     </script>
 
     <div style="height: 1000px"></div>
 
-    
+    <style>
+        /* 상단 게이지 바 */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background-color: blue;
+            width: 0%;
+            z-index: 9999;
+        }
+    </style>
+
+    <div id="progress-bar"></div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var 페이지실제높이 = document.documentElement.scrollHeight
+            var 페이지눈에보이는높이 = document.querySelector('html').clientHeight
+            var 페이지스크롤양 = window.scrollY
+
+            // 스크롤 가능 전체 높이
+            var 진행률 = (페이지스크롤양/(페이지실제높이 - 페이지눈에보이는높이)) * 100;
+
+            // 게이지 바
+            document.getElementById('progress-bar').style.width = 진행률 + '%';
+        });
+    </script>
     
 </body>
 </html>
