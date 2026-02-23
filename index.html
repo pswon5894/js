@@ -331,36 +331,54 @@
         // console.log(함수(10, true))
     </script>
 
-<!-- overflow-y 넘치는 글자 스크롤바 만들어라 -->
-    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
-    </div> 
-
-    <script>
-        // div의 스크롤바 내린 양 + 눈에보이는div 높이 == div의 실제높이
-        $('.lorem').on('scroll', function(){
-            var 스크롤양 =document.querySelector('.lorem').scrollTop;
-            var 실제높이 =documnet.querySelector('.lorem').scrollHeight;
-
-            var 눈이보이는높이 = document.querySelector('.lorem').clientHeight;
-        })
-    </script>
-
-    <div style="height: 1000px"></div>
-
     <script>
         window.addEventListener('scroll', function(){
             // window는 페이지 화면을 의미 document랑 비슷한 뜻
-            window.scrollY
             // 스크롤바 내린 양
         });
 
+        // 스크롤바를 100px이상 내리면 네브바 글씨 작아짐, 올리면 다시 커짐
+        $(window).on('scroll', function(){
+            if(window.scrollY > 100){
+            $('.navbar-brand').css('font-size', '20px');
+            } else {
+                $('.navbar-brand').css('font-size', '30px');
+            }
+        })
+        
         //제이쿼리는 scrollY -> scrollTop()
         //이건 스크롤바 이동도 됨, 숫자를 넣으면
         $(window).on('scroll', function(){
             $(window).scrollTop()
         })
     </script>
+
+<!-- overflow-y 넘치는 글자 스크롤바 만들어라 -->
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div> 
+
+    <script>
+        //플래그 방식으로 한번만 작동하게
+        let 한번알트 = false;
+
+        // div의 스크롤바 내린 양 + 눈에보이는div 높이 == div의 실제높이
+        $('.lorem').on('scroll', function(){
+            var 스크롤양 = document.querySelector('.lorem').scrollTop;
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;
+
+            var 눈에보이는높이 = document.querySelector('.lorem').clientHeight;
+
+            if(!한번알트 &&(스크롤양 + 눈에보이는높이 > 실제높이 * 0.9)){
+                alert('다읽음')
+                한번알트 = true;
+            }
+        })
+    </script>
+
+    <div style="height: 1000px"></div>
+
+    
     
 </body>
 </html>
