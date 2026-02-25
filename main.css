@@ -25,7 +25,7 @@
   height : 100%;
   position : fixed;
   background : rgba(0,0,0,0.5);
-  z-index : 5;
+  z-index : 6;
   /* 기본적으로 z-index 속성이 적용되지 않은 요소 간에는
   HTML 문서 상에서 나중에 나오는 요소가
   먼저 나오는 요소보다 위로 올라오도록 되어 있는데요 

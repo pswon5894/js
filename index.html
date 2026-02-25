@@ -20,7 +20,7 @@
 <body class="">
 
     <div class="black-bg">
-        <div class="white-bg">
+        <div class="white-bg">      
             <h4>로그인하세요</h4>
             <form action="success.html">
                 <div class="my-3">
@@ -35,6 +35,23 @@
             <!-- <button class="btn btn-danger" id="close">닫기</button> -->
         </div>
     </div>
+
+    <!-- 모달창 바깥 클릭시 모달창 닫기 -->
+    <script>
+        document.querySelector('.black-bg').addEventListener('click', function(e) {
+
+            // e.target; // 유저가 실제로 누른것
+            // e.currentTarget; //이벤트리스너 달린 곳
+            // this;
+
+            // e.preventDefault(); //이벤트 기본 동작 막아줌
+            // e.stopPropagation();    //내 상위요소로 이벤트 버블링 막아줌
+
+            if(e.target == document.querySelector('.black-bg')){
+                document.querySelector('.black-bg').classList.remove('show-modal');
+            }
+        })
+    </script>
 
     <script>
         // 전송 버튼 누르면
