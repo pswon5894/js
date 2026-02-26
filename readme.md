@@ -293,3 +293,5 @@ jQuery 셀럭터로 찾은 결과와 querySelector 셀렉터로 찾은 결과는
 jQuery 셀렉터 끼리는 등호 비교 불가
 
 $('.black-bg').is($('.black-bg')) 이런 비교용 함수 해야함
+
+이벤트 버블링으로 이벤트리스너 줄일수있다
