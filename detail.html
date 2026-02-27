@@ -19,6 +19,27 @@
 </head>
 <body>
 
+  <div class="container mt-3">
+    <div class="card p-3">
+      <span class="p-3-name">상품명</span>
+      <span class="p-3-price">가격</span>
+    </div>
+  </div>
+
+  <script>
+    var car = ['소나타', 50000, 'white'];   //array 자료형
+    car[0] = '아반떼';
+    var car2 = {name: '소나타', price: [50000, 3000, 4000]};  //object 자료형 - 이름 붙여서 저장가능(-key: value 형태로 저장가능)
+    // console.log(car2['name']) //  console.log(car2.name)
+    // car.sort();  // array는 자료간 순서가 존재, 인덱싱, 정렬 가능
+    // car.slice(1,3);   //중간에 자르기도 가능, 자료검색도 가능, 맨앞/맨뒤 자료추가 가능
+
+    // document.querySelector('.card p-3').innerHTML = 'car';
+    document.querySelector('.p-3-name').innerHTML = car2.name;
+    document.querySelector('.p-3-price').innerHTML = car2['price'][0];
+    // console.log(car2.price[0])
+  </script>
+
     <style>
   ul.list {
     list-style-type: none;
