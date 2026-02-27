@@ -300,7 +300,7 @@ $('.black-bg').is($('.black-bg')) 이런 비교용 함수 해야함
 
 
 
-좋은 질문이에요! 만약 HTML에 `data-id`만 바인딩해두고, 그걸 기준으로 `products` 배열에서 데이터를 찾아와서 카드에 채우고 싶다면 이렇게 할 수 있습니다.  
+만약 HTML에 `data-id`만 바인딩해두고, 그걸 기준으로 `products` 배열에서 데이터를 찾아와서 카드에 채우고 싶다면
 
 ### HTML (data-id만 사용)
 ```html
@@ -356,4 +356,18 @@ for (let i = 0; i < cards.length; i++) {
 이 방식은 **HTML에는 최소한의 데이터(`data-id`)만 넣고**, 실제 상품 정보는 `products` 배열에서 관리하는 구조예요.  
 장점은 상품 데이터가 바뀌어도 HTML을 수정할 필요 없이 배열만 업데이트하면 된다는 점입니다.  
 
-👉 혹시 원하시는 건 **상품 정보를 전부 HTML에 넣는 방식**인지, 아니면 지금처럼 **배열에서 관리하면서 data-id로 매핑하는 방식**을 더 선호하시나요?
+**배열에서 관리하면서 data-id로 매핑하는 방식**
+
+```js
+let cards = document.querySelectorAll('.card');
+
+for (let i = 0; i< cards.length; i++) {
+
+  // console.log(cards[i].dataset.id)
+
+  d = cards[i].dataset.id
+
+  cards[i].querySelector('h5').innerHTML = products[d]['title'];
+  cards[i].querySelector('p').innerHTML = '가격 : ' + products[d].price
+}
+```
