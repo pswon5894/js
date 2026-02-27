@@ -295,3 +295,65 @@ jQuery 셀렉터 끼리는 등호 비교 불가
 $('.black-bg').is($('.black-bg')) 이런 비교용 함수 해야함
 
 이벤트 버블링으로 이벤트리스너 줄일수있다
+
+
+
+
+
+좋은 질문이에요! 만약 HTML에 `data-id`만 바인딩해두고, 그걸 기준으로 `products` 배열에서 데이터를 찾아와서 카드에 채우고 싶다면 이렇게 할 수 있습니다.  
+
+### HTML (data-id만 사용)
+```html
+<div class="card" data-id="0">
+  <img src="https://placehold.co/600">
+  <div class="card-body">
+    <h5></h5>
+    <p></p>
+    <button class="btn btn-danger">주문하기</button>
+  </div>
+</div>
+
+<div class="card" data-id="1">
+  <img src="https://placehold.co/600">
+  <div class="card-body">
+    <h5></h5>
+    <p></p>
+    <button class="btn btn-danger">주문하기</button>
+  </div>
+</div>
+
+<div class="card" data-id="2">
+  <img src="https://placehold.co/600">
+  <div class="card-body">
+    <h5></h5>
+    <p></p>
+    <button class="btn btn-danger">주문하기</button>
+  </div>
+</div>
+```
+
+### JavaScript (for 반복문 + dataset 활용)
+```javascript
+var products = [
+  { id: 0, price: 70000, title: 'Blossom Dress' },
+  { id: 1, price: 50000, title: 'Springfield Shirt' },
+  { id: 2, price: 60000, title: 'Black Monastery' }
+];
+
+let cards = document.querySelectorAll('.card');
+
+for (let i = 0; i < cards.length; i++) {
+  let productId = cards[i].dataset.id; // data-id 값 가져오기
+  let product = products[productId];   // 배열에서 해당 상품 찾기
+
+  cards[i].querySelector('h5').innerHTML = product.title;
+  cards[i].querySelector('p').innerHTML = '가격 : ' + product.price;
+}
+```
+
+---
+
+이 방식은 **HTML에는 최소한의 데이터(`data-id`)만 넣고**, 실제 상품 정보는 `products` 배열에서 관리하는 구조예요.  
+장점은 상품 데이터가 바뀌어도 HTML을 수정할 필요 없이 배열만 업데이트하면 된다는 점입니다.  
+
+👉 혹시 원하시는 건 **상품 정보를 전부 HTML에 넣는 방식**인지, 아니면 지금처럼 **배열에서 관리하면서 data-id로 매핑하는 방식**을 더 선호하시나요?
