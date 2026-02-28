@@ -32,6 +32,7 @@
     <select class="form-select mt-2">
       <option>모자</option>
       <option>셔츠</option>
+      <option>바지</option>
     </select>
 
     <select class="form-select mt-2 form-hide">
@@ -40,7 +41,27 @@
     </select>
 </form>
 
+<div id="test">
+
+</div>
+
 <script>
+
+
+  // 자바스크립트로 html 생성법
+  var a = document.createElement('p')
+  a.innerHTML = '문자 넣기';
+  // a.classList.add()    //클래스명도 넣을수 있음
+  document.querySelector('#test').appendChild(a); //id test에 자식에 p 태그 추가
+
+  // 자바스크립트로 html 생성법2
+  var 템플릿 = '<p>안녕</p>';
+  document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿); //(안쪽 맨 밑)
+
+  $('#test').append(템플릿);    //jquery는 짧다
+
+
+
   // 같은 동작을 하는 이벤트 리스너가 세 가지 방식
   
   // jQuery 메서드로 - DOM 이벤트 객체(e)나 this를 쓰지 않고, 다시 jQuery 선택자를 호출해서 값을 읽는 방식
@@ -54,19 +75,19 @@
   })
 
   // e.currentTarget은 이벤트가 바인딩된 현재 요소
-  $('.form-select').eq(0).on('input', function(e){
-    let value = e.currentTarget.value;
+  // $('.form-select').eq(0).on('input', function(e){
+  //   let value = e.currentTarget.value;
 
-    // 같은 값
-     console.log(e.currentTarget.value)
-     console.log(this.value)
+  //   // 같은 값
+  //    console.log(e.currentTarget.value)
+  //    console.log(this.value)
 
-    if( value == '셔츠') {
-      $('.form-select').eq(1).removeClass('form-hide')
-    } else{
-      $('.form-select').eq(1).addClass('form-hide')
-    }
-  })
+  //   if( value == '셔츠') {
+  //     $('.form-select').eq(1).removeClass('form-hide')
+  //   } else{
+  //     $('.form-select').eq(1).addClass('form-hide')
+  //   }
+  // })
  
   // // 이벤트 리스너 안에서 this는 기본적으로 이벤트가 발생한 요소
   // $('.form-select').eq(0).on('input', function(){
@@ -77,6 +98,17 @@
   //     $('.form-select').eq(1).addClass('form-hide')
   //   }
   // })
+
+  $('.form-select').eq(0).on('input', function(){
+    if($('.form-select').eq(0).val() == '바지'){
+      $('.form-select').eq(1).removeClass('form-hide')
+      
+      var 템플릿 = `<option>28</option>
+        <option>30</option>`;
+
+      $('.form-select').eq(1).html(템플릿);
+    }
+  })
   
 </script>
 
