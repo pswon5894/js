@@ -26,6 +26,60 @@
     </div>
   </div>
 
+  <!-- 셀렉트 인풋 -->
+  <form class="container my-5 form-group">
+    <p>상품선택</p>
+    <select class="form-select mt-2">
+      <option>모자</option>
+      <option>셔츠</option>
+    </select>
+
+    <select class="form-select mt-2 form-hide">
+      <option>95</option>
+      <option>100</option>
+    </select>
+</form>
+
+<script>
+  // 같은 동작을 하는 이벤트 리스너가 세 가지 방식
+  
+  // jQuery 메서드로 - DOM 이벤트 객체(e)나 this를 쓰지 않고, 다시 jQuery 선택자를 호출해서 값을 읽는 방식
+  $('.form-select').eq(0).on('input', function(){
+    let value = $('.form-select').eq(0).val()
+    if( value == '셔츠') {
+      $('.form-select').eq(1).removeClass('form-hide')
+    } else{
+      $('.form-select').eq(1).addClass('form-hide')
+    }
+  })
+
+  // e.currentTarget은 이벤트가 바인딩된 현재 요소
+  $('.form-select').eq(0).on('input', function(e){
+    let value = e.currentTarget.value;
+
+    // 같은 값
+     console.log(e.currentTarget.value)
+     console.log(this.value)
+
+    if( value == '셔츠') {
+      $('.form-select').eq(1).removeClass('form-hide')
+    } else{
+      $('.form-select').eq(1).addClass('form-hide')
+    }
+  })
+ 
+  // // 이벤트 리스너 안에서 this는 기본적으로 이벤트가 발생한 요소
+  // $('.form-select').eq(0).on('input', function(){
+  //   let value = this.value;
+  //   if( value == '셔츠') {
+  //     $('.form-select').eq(1).removeClass('form-hide')
+  //   } else{
+  //     $('.form-select').eq(1).addClass('form-hide')
+  //   }
+  // })
+  
+</script>
+
   <script>
     var car = ['소나타', 50000, 'white'];   //array 자료형
     car[0] = '아반떼';

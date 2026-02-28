@@ -371,3 +371,15 @@ for (let i = 0; i< cards.length; i++) {
   cards[i].querySelector('p').innerHTML = '가격 : ' + products[d].price
 }
 ```
+
+HTMLElement: dataset 속성
+HTML dataset은 data-* 속성을 사용하여 HTML 요소에 사용자 정의 데이터를 저장하고, 자바스크립트(JS)에서 이를 손쉽게 접근(읽기/쓰기)할 수 있게 해주는 표준화된 방법
+
+직관적인 데이터 바인딩: HTML과 JS 간의 데이터 교환이 간편
+CSS 연동: CSS 속성 선택자를 사용하여 데이터 값에 따라 스타일을 다르게 적용
+렌더링 무시: 브라우저는 이 속성을 화면에 그리지 않으므로 성능에 거의 영향 없음
+
+
+document.querySelectorAll('.card')의 결과는 배열(Array) 이 아니라 NodeList
+자료형 : DOM API가 반환하는 컬렉션 객체, 유사 배열 객체
+인덱스로 접근 가능

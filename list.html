@@ -54,14 +54,15 @@
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-let cards = document.querySelectorAll('.card')
+  let cards = document.querySelectorAll('.card')
 
-for (i=0; i<cards.length; i++){
-  // console.log(cards[i].dataset.id)
-  did = cards[i].dataset.id
-  cards[i].querySelector('h5').innerHTML = products[did].price;
-  cards[i].querySelector('p').innerHTML = products[did].title
-}
+  for (i=0; i < cards.length; i++){
+    // console.log(cards[i].dataset.id)
+    did = cards[i].dataset.id
+
+    cards[i].querySelector('h5').innerHTML = products[did].title;
+    cards[i].querySelector('p').innerHTML = products[did].price;
+  }
   
 </script> 
 </body>
