@@ -39,7 +39,7 @@
       <option>95</option>
       <option>100</option>
     </select>
-</form>
+  </form>
 
 <div id="test">
 
@@ -65,14 +65,14 @@
   // 같은 동작을 하는 이벤트 리스너가 세 가지 방식
   
   // jQuery 메서드로 - DOM 이벤트 객체(e)나 this를 쓰지 않고, 다시 jQuery 선택자를 호출해서 값을 읽는 방식
-  $('.form-select').eq(0).on('input', function(){
-    let value = $('.form-select').eq(0).val()
-    if( value == '셔츠') {
-      $('.form-select').eq(1).removeClass('form-hide')
-    } else{
-      $('.form-select').eq(1).addClass('form-hide')
-    }
-  })
+  // $('.form-select').eq(0).on('input', function(){
+  //   let value = $('.form-select').eq(0).val()
+  //   if( value == '셔츠') {
+  //     $('.form-select').eq(1).removeClass('form-hide')
+  //   } else{
+  //     $('.form-select').eq(1).addClass('form-hide')
+  //   }
+  // })
 
   // e.currentTarget은 이벤트가 바인딩된 현재 요소
   // $('.form-select').eq(0).on('input', function(e){
@@ -99,16 +99,84 @@
   //   }
   // })
 
-  $('.form-select').eq(0).on('input', function(){
-    if($('.form-select').eq(0).val() == '바지'){
-      $('.form-select').eq(1).removeClass('form-hide')
-      
-      var 템플릿 = `<option>28</option>
-        <option>30</option>`;
 
-      $('.form-select').eq(1).html(템플릿);
+
+  // var 기본템플릿 = $('.form-select').eq(1).html();
+
+  // $('.form-select').eq(0).on('input', function(){
+   
+  //   if($('.form-select').eq(0).val() == '바지'){
+  //     $('.form-select').eq(1).removeClass('form-hide')
+      
+  //     var 템플릿 = `<option>28</option>
+  //       <option>30</option>`;
+
+  //     $('.form-select').eq(1).html(템플릿);
+  //   } else if($('.form-select').eq(0).val() == '셔츠'){
+  //     $('.form-select').eq(1).removeClass('form-hide')
+  //     $('.form-select').eq(1).html(기본템플릿);
+  //   } else {
+  //     $('.form-select').eq(1).addClass('form-hide');
+  //   }
+  // })
+
+
+  var pants = [28, 30, 32, 34];   // 서버에서 받은 데이터라 가정
+  var shirts = [95, 100, 105, 110];
+
+  $('.form-select').eq(0).on('input', function(){
+
+    var value = $('.form-select').eq(0).val();
+    if (value == '셔츠') {
+      $('.form-select').eq(1).removeClass('form-hide');
     }
-  })
+    else if (value == '바지'){
+      $('.form-select').eq(1).removeClass('form-hide');
+      $('.form-select').eq(1).html('');
+      pants.forEach(function(a){    // forEach 안에 파라미터2개 생성가능 -첫 째는 array안의 데이터, -둘 쨰는 0 부터 1씩 증가하는 정수
+        $('.form-select').eq(1).append(`<option>${a}</option>`);
+      })   //array에 붙일 수 있는 forEach 반복문  // 성능은 for 반복문이 좋음
+
+      // 배열이나 컬렉션의 모든 요소를 처음부터 끝까지 순회할 때
+      // 인덱스(i) 관리 없이 요소를 직접 가져와 코드를 간결하고 가독성 있게 만들기 위해 사용
+
+      // 반복문 용도  - array, object 데이터 전부 꺼낼 때
+
+      // pants.forEach((a) => {})  // arrow function 사용가능
+      // (주의) arrow function 쓰면 함수 안의 this 뜻이 달라질 수 있음
+      // arrow function 안에서 쓰면 바깥에 있던 this를 그대로 가져다씀
+      // function 안에서 쓰면 this가 알맞게 재정의됨
+      //- arrow function은 함수 안에서 this를 재정의해주지 않고 바깥에 있던 this를 그대 사용
+      // 그래서 이벤트리스너 콜백함수안에서 this를 써야하면 arrow function 쓰면 의도와 다르게 동작할 수도 있음
+
+      // 핵심 차이
+      // 일반 함수(function), 호출 방식에 따라 this 가 달라짐, 예 : 객체의 메서드로 호출하면 그 객체가 this가 되고, 그냥 호출하면 undefined (strict 모드)나 window(비 strict 모드)가 됨
+      // 화살표 함수, 함수가 선언된 위치의 this를 가져옴(lexical this), 객체 메서드 안에서 화살표 함수를 쓰면, 그 메서드가 속한 객체가 아니라 바깥 스코프의 this를 참조함
+      // 예시
+      // const obj = {
+      //   name: "Alice",
+      //   normalFunc: function() {
+      //     console.log(this.name); // "Alice"
+      //   },
+      //   arrowFunc: () => {
+      //     console.log(this.name); // undefined (바깥 this를 가져옴)
+      //   }
+      // };
+
+      // obj.normalFunc(); // "Alice"
+      // obj.arrowFunc();  // undefined
+      
+      // 여기서 arrowFunc는 obj의 this를 쓰지 않고, obj를 감싸고 있는 바깥 스코프의 this를 가져오기 때문에 undefined
+
+      // - function → 호출 방식에 따라 this가 달라짐.
+      // - arrow function → 선언된 위치의 this를 고정적으로 가져옴.
+
+
+
+      
+    }
+
+  });
   
 </script>
 
