@@ -171,12 +171,50 @@
       // - function → 호출 방식에 따라 this가 달라짐.
       // - arrow function → 선언된 위치의 this를 고정적으로 가져옴.
 
-
-
-      
     }
 
   });
+
+  // var 출석부 = ['흥민', '영희', '철수', '재석'];
+
+  //     function 이름찾기(name){
+  //       // name 이 출석부[a]에 있으면 console.log('있어요')
+  //       for(var i = 0; i<4; i++){
+  //         if(name == 출석부[i]){
+  //           console.log('있어요')
+  //         }
+  //       }
+  //     }
+
+  //     이름찾기('철수');
+
+
+  // for(u=2; u<10; u++){
+  //   for(i=1; i<10; i++){
+  //   console.log(i*u)
+  //   }
+  // }
+
+  function 평균함수(arr, b){
+    // arr 안에 있는 숫자들 평균내기
+    var sum = 0;
+    var average = 0;
+
+    for(var i = 0; i<arr.length; i++){
+      sum += arr[i];  
+    }
+    average = sum/arr.length
+    // 그걸 b랑 비교해 b가 더 크면 console.log('올랐네요')
+    if (average < b) {
+      console.log(`${b-average}점 올랐네요`)
+    } else {
+      console.log('재수추천')
+    }
+    // b가 더 작으면 console.log('재수추천')
+  }
+
+  평균함수([2,3,4], 10);  //올랐네요 출력될듯 
+  
   
 </script>
 
