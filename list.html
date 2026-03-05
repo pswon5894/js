@@ -23,14 +23,17 @@
 <div class="container">
   <div class="row">
 
-      <div class="col-sm-4">
+      <!-- <div class="col-sm-4">
         <img src="https://placehold.co/600" class="w-100">
         <h5>Card title</h5>
         <p>가격 : 70000</p>
-      </div>
+      </div> -->
 
   </div>
-</div>    
+</div>
+
+
+
 
 <script>
   var products = [
@@ -38,6 +41,20 @@
     { id : 1, price : 50000, title : 'Springfield Shirt' },
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
+
+  products.forEach((a, i) =>{
+    var 템플릿 =
+    `<div class="col-sm-4">
+          <img src="https://placehold.co/600" class="w-100">
+          <h5>${products[i].title}</h5>
+          <p>가격 : ${products[i].price}</p>
+        </div>`;
+    
+    $('.row').append(템플릿)
+    // console.log(a)
+    // console.log(products)
+  })
+  
 
   // let cards = document.querySelectorAll('.card')
 
@@ -78,6 +95,31 @@
 
 
   
+</script>
+
+<div class="container">
+  <button class="btn btn-danger" id="more">더보기</button>
+</div>
+
+<script>
+  $('#more').click(function(){
+    $.get('https://codingapple1.github.io/js/more1.json')
+      .done((data)=>{
+        // console.log(data);
+
+        data.forEach((a, i)=>{
+          var 템플릿 =
+          `<div class="col-sm-4">
+              <img src="https://placehold.co/600" class="w-100">
+              <h5>${data[i].title}</h5>
+              <p>가격 : ${data[i].price}</p>
+            </div>`;
+        
+          $('.row').append(템플릿)
+        })
+        
+      });
+  });
 </script>
 
 <form action="/sdsdsd" method="post">
